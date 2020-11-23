@@ -56,8 +56,8 @@ Then('se obtiene el valor NaN', function () {
 	expect(contexto.encontrado).is.NaN;
 });
 
-Then('se obtiene la lista ordenada', function (tabla) {
-	assert.deepEqual(contexto.lista.getElementosOrdenados(), tabla.rawTable[0]);
+Then('se obtiene la lista de claves ordenadas', function (tabla) {
+	assert.deepEqual(contexto.lista.getClavesOrdenadas(), tabla.rawTable[0]);
 });
 
 Then('se obtiene el valor {int}', function (valor) {
