@@ -12,7 +12,6 @@ Escenario: Buscar un valor en una lista vacía
     Entonces se obtiene el valor NaN
 
 
-@wip
 Escenario: Lista con un elemento
     Dado una lista con los siguientes elementos
     | "clave" | "valor"|

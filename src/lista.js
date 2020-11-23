@@ -32,28 +32,28 @@ module.exports = class Lista {
 		} else {
 			this.#elementos.push({ [`${key}`]: value });
 		}
-		// this.getOrderList();
+		this.getOrderList();
 	}
-	// addFirst(key, value) {
-	// 	let found_index = this.findKeyIndex(key);
-	// 	if (!isNaN(found_index)) {
-	// 		this.#elementos[found_index][`${key}`] = value;
-	// 	} else {
-	// 		this.#elementos.unshift({ [`${key}`]: value });
-	// 	}
-	// 	this.getOrderList();
-	// }
-	// getOrderList() {
-	// 	this.#elementos.sort(function (a, b) {
-	// 		if (Object.keys(a)[0] > Object.keys(b)[0]) {
-	// 			return 1;
-	// 		}
-	// 		if (Object.keys(a)[0] < Object.keys(b)[0]) {
-	// 			return -1;
-	// 		}
-	// 		return 0;
-	// 	});
-	// }
+	addFirst(key, value) {
+		let found_index = this.findKeyIndex(key);
+		if (!isNaN(found_index)) {
+			this.#elementos[found_index][`${key}`] = value;
+		} else {
+			this.#elementos.unshift({ [`${key}`]: value });
+		}
+		this.getOrderList();
+	}
+	getOrderList() {
+		this.#elementos.sort(function (a, b) {
+			if (Object.keys(a)[0] > Object.keys(b)[0]) {
+				return 1;
+			}
+			if (Object.keys(a)[0] < Object.keys(b)[0]) {
+				return -1;
+			}
+			return 0;
+		});
+	}
 	getByKey(key) {
 		let index_element = this.findKeyIndex(key);
 		if (!isNaN(index_element)) {
@@ -61,13 +61,13 @@ module.exports = class Lista {
 		}
 		return NaN;
 	}
-	// getElementosOrdenados() {
-	// 	let ordered_keys = [];
-	// 	this.#elementos.forEach((element) => {
-	// 		ordered_keys.push(Object.keys(element)[0]);
-	// 	});
-	// 	return ordered_keys;
-	// }
+	getElementosOrdenados() {
+		let ordered_keys = [];
+		this.#elementos.forEach((element) => {
+			ordered_keys.push(Object.keys(element)[0]);
+		});
+		return ordered_keys;
+	}
 	delete(key) {
 		let index_element = this.findKeyIndex(key);
 		if (!isNaN(index_element)) {

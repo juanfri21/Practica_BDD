@@ -3,6 +3,7 @@ const { Before, Given, When, Then } = require('@cucumber/cucumber');
 const Lista = require('../../src/lista');
 
 const expect = require('chai').expect;
+const assert = require('chai').assert;
 
 let contexto = {};
 
@@ -29,22 +30,37 @@ When('se elimina la clave {string}', function (clave) {
 });
 
 When('se busca la clave {string}', function (clave) {
-	contexto.encontrado = contexto.lista.getByKey(clave)
+	contexto.encontrado = contexto.lista.getByKey(clave);
+});
+
+When('se agrega al principio la pareja {}', function (pareja) {
+	pareja = JSON.parse(pareja);
+
+	contexto.lista.addFirst(Object.keys(pareja)[0], Object.values(pareja)[0]);
 });
 
 Then('la lista tiene {int} elemento(s) almacenado(s)', function (cantidad) {
 	expect(contexto.lista.count()).to.equal(cantidad);
 });
-                            // (?:NaN|[\"\d\w]+) es opcional
+// (?:NaN|[\"\d\w]+) es opcional
 // Then(/^se obtiene el valor (NaN|[\"\d\w]+)$/, function () {
 //     console.log(valor)
 //     expect(contexto.encontrado).is.equal(eval(valor))
 // });
 
 Then('se obtiene el valor {string}', function (valor) {
-    expect(contexto.encontrado).is.equal(valor)
+	expect(contexto.encontrado).is.equal(valor);
 });
 
 Then('se obtiene el valor NaN', function () {
-    expect(contexto.encontrado).is.NaN
+	expect(contexto.encontrado).is.NaN;
+});
+
+Then('se obtiene la lista ordenada', function (tabla) {
+	assert.deepEqual(contexto.lista.getElementosOrdenados(), tabla.rawTable[0]);
+});
+
+Then('se obtiene el valor {int}', function (valor) {
+	console.log(valor)
+	expect(contexto.encontrado).is.equal(valor);
 });
