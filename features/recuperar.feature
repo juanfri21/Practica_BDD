@@ -6,19 +6,19 @@ Característica: Recuperar lista ordenada con las claves
 
 Escenario: Al agregar un elemento al principio la lista esta ordenada 
     Dado una lista con los siguientes elementos
-    | "uno"  | 1 |
-    | "dos"  | 2 |
-    | "tres" | 3 |
-    Cuando se agrega al principio la pareja {"cuatro": 4}
+    | "cuatro" | 4 |
+    | "tres"   | 3 |
+    | "dos"    | 2 |
+    | "uno"    | 1 |
     Entonces se obtiene la lista de claves ordenadas 
     | cuatro | dos | tres | uno |
 
 Escenario: Al agregar un elemento al final la lista esta ordenada 
     Dado una lista con los siguientes elementos
-    | "uno"  | 1 |
-    | "dos"  | 2 |
-    | "tres" | 3 |
-    Cuando se agrega la pareja {"cuatro": 4}
+    | "uno"    | 1 |
+    | "dos"    | 2 |
+    | "tres"   | 3 |
+    | "cuatro" | 4 |
     Entonces se obtiene la lista de claves ordenadas 
     | cuatro | dos | tres | uno |
 

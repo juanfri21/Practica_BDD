@@ -33,12 +33,6 @@ When('se busca la clave {string}', function (clave) {
 	contexto.encontrado = contexto.lista.getByKey(clave);
 });
 
-When('se agrega al principio la pareja {}', function (pareja) {
-	pareja = JSON.parse(pareja);
-
-	contexto.lista.addFirst(Object.keys(pareja)[0], Object.values(pareja)[0]);
-});
-
 Then('la lista tiene {int} elemento(s) almacenado(s)', function (cantidad) {
 	expect(contexto.lista.count()).to.equal(cantidad);
 });
@@ -57,10 +51,9 @@ Then('se obtiene el valor NaN', function () {
 });
 
 Then('se obtiene la lista de claves ordenadas', function (tabla) {
-	assert.deepEqual(contexto.lista.getClavesOrdenadas(), tabla.rawTable[0]);
+	assert.deepEqual(contexto.lista.getOrderedKeys(), tabla.rawTable[0]);
 });
 
 Then('se obtiene el valor {int}', function (valor) {
-	console.log(valor)
 	expect(contexto.encontrado).is.equal(valor);
 });
